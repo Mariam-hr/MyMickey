@@ -1,27 +1,55 @@
 ![App Brewery Banner](Documentation/AppBreweryBanner.png)
 
-# Auto Layout 
+# Xylophone
 
 ## Our Goal
 
-At the moment, our app only looks good on the canvas dimension that we’ve selected. If you run the app on screens with different aspect ratios or try to turn it to landscape, the designs will look broken. 
-
-Auto Layout allows us to set rules as to how we want our views to be displayed. Because mobile screens have different resolutions and sizes, we need these rules to tell the iPhone/iPad how it should layout all the elements in the storyboard onto the display. These rules allow our UI elements to be resized and positioned so that no matter which screen they are displayed on, they always look as the designer intended.
+The goal of this tutorial is to dive into a simple iOS recipe - how to play sound and use an Apple library called AVFoundation. The most important skill of a great programmer is being able to solve your own problems. We’ll do that by exploring StackOverflow, Apple Documentation and learning how to search for solutions effectively. By learning to use these tools, you’ll be able to start adding custom features to an app and get it to do what you want it to.
 
 
 ## What you will create
 
-Although Dicee is already pretty dicey, we get into problems when we try to rotate the screen to landscape or if we have a screen size that is not the same as the canvas. In this module, we’ll learn how to fix this and make our apps look exactly the way we want.
+You will be making your first musical instrument! Music apps are so popular on the App Store that they even get their own category. So in this module, we’re going to make a colourful XyloPhone app. Get it? Ok, the jokes are bad, but remember, I only wrote the good ones... 
 
 ## What you will learn
 
-* How to add constraints and understanding how Auto Layout works.
-* How to Pin and Align elements.
-* How to create containers to configure advanced layouts.
-* How to debug auto layout errors.
-* Understanding what Xcode needs in order to correctly layout a design.
-* How to use Stack Views to create complex interfaces.
+* How to play sound using AVFoundation and AVAudioPlayer.
+* Understand Apple documentation and how to use StackOverflow.
+* Functions and methods in Swift. 
+* Data types.
+* Swift loops.
+* Variable scope.
+* The ViewController lifecycle.
+* Error handling in Swift.
+* Code refactoring.
+* Basic debugging.
 
+## Replacement Code
+
+```
+import UIKit
+import AVFoundation
+
+class ViewController: UIViewController {
+    
+    var player: AVAudioPlayer!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    @IBAction func keyPressed(_ sender: UIButton) {
+        playSound()
+    }
+    
+    func playSound() {
+        let url = Bundle.main.url(forResource: "C", withExtension: "wav")
+        player = try! AVAudioPlayer(contentsOf: url!)
+        player.play()
+                
+    }
+}
+```
 
 
 
