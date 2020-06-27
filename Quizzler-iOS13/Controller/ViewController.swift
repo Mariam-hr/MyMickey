@@ -12,22 +12,23 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
-    @IBOutlet weak var trueButton: UIButton!
-    @IBOutlet weak var falseButton: UIButton!
+    @IBOutlet weak var Choice1: UIButton!
+    @IBOutlet weak var Choice3: UIButton!
+    @IBOutlet weak var Choice2: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
     
     let quiz = [
-        Question(q: "I like Mickey", a: "True"),
-        Question(q: "I want to go to China", a: "True"),
-        Question(q: "I like mice", a: "False"),
-        Question(q: "I am Hrashq", a: "True"),
-        Question(q: "I am programmer", a: "False"),
-        Question(q: "I like cats", a: "False"),
-        Question(q: "I like horror films", a: "False"),
-        Question(q: "I love Cillian Murphy", a: "True"),
-        Question(q: "I want to be a famous actress", a: "True"),
-        Question(q: "I'll have my own dress shop", a: "True"),
-        Question(q: "I love myself very much", a: "True")
+        Question(q: "I like Mickey", a: "True", c: "Not sure"),
+        Question(q: "I want to go to China", a: "True", c: "Not sure"),
+        Question(q: "I like mice", a: "False", c: "Not sure"),
+        Question(q: "I am Hrashq", a: "True", c: "Not sure"),
+        Question(q: "I am programmer", a: "False", c: "Not sure"),
+        Question(q: "I like cats", a: "False", c: "Not sure"),
+        Question(q: "I like horror films", a: "False", c: "Not sure"),
+        Question(q: "I love Cillian Murphy", a: "True", c: "Not sure"),
+        Question(q: "I want to be a famous actress", a: "True", c: "Not sure"),
+        Question(q: "I'll have my own dress shop", a: "True", c: "Not sure"),
+        Question(q: "I love myself very much", a: "True", c: "Not sure")
     ]
     
     var questionNumber = 0
@@ -38,8 +39,6 @@ class ViewController: UIViewController {
      updateUI()
         
     }
-    
-
     @IBAction func answerButtonPressed(_ sender: UIButton) {
         let userAnswer = sender.currentTitle //True or False
         let actualAnswer = quiz[questionNumber].answer
@@ -63,18 +62,14 @@ class ViewController: UIViewController {
        Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
     
     }
-    
-    
     @objc func updateUI(){
         questionLabel.text = quiz[questionNumber].text
-        trueButton.backgroundColor = UIColor.clear
-        falseButton.backgroundColor = UIColor.clear
+        Choice1.backgroundColor = UIColor.clear
+        Choice2.backgroundColor = UIColor.clear
+        Choice3.backgroundColor = UIColor.clear
         progressBar.progress = Float(questionNumber + 1) / Float(quiz.count)
         scoreLabel.text = "Score: \(score)"
       
     }
-    
-
-
 }
 
